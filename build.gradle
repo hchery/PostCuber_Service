@@ -1,0 +1,51 @@
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version "$VER_PLUGIN_SPRING_BOOT"
+  id 'io.spring.dependency-management' version "$VER_PLUGIN_SPRING_DEP"
+}
+
+allprojects {
+  group = "$PROJ_GROUP_ID"
+  version = "$PROJ_VERSION"
+}
+
+subprojects {
+  apply { plugin 'java' }
+  java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+  }
+  dependencies {
+    implementation(
+      'org.springframework.boot:spring-boot-starter-web',
+      'org.springframework.boot:spring-boot-starter-data-mongodb',
+      'org.springframework.boot:spring-boot-starter-data-redis',
+      'org.springframework.boot:spring-boot-starter-cache',
+      'org.springframework.security:spring-security-crypto',
+      'org.apache.commons:commons-lang3',
+      "org.lionsoul:ip2region:$VER_LIB_IP2REGION",
+      "com.maxmind.geoip2:geoip2:$VER_LIB_GEO_LITE",
+      "com.auth0:java-jwt:$VER_LIB_AUTH0_JAVA_JWT"
+    )
+    compileOnly(
+      'org.projectlombok:lombok',
+      'org.springframework.boot:spring-boot-configuration-processor'
+    )
+    annotationProcessor(
+      'org.projectlombok:lombok',
+      'org.springframework.boot:spring-boot-configuration-processor'
+    )
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testRuntimeOnly('org.junit.platform:junit-platform-launcher')
+    testCompileOnly(
+      'org.projectlombok:lombok',
+      'org.springframework.boot:spring-boot-configuration-processor'
+    )
+    testAnnotationProcessor(
+      'org.projectlombok:lombok',
+      'org.springframework.boot:spring-boot-configuration-processor'
+    )
+  }
+
+  tasks.named('test', Test) { useJUnitPlatform() }
+}

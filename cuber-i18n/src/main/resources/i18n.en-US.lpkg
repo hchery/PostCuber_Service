@@ -1,0 +1,7 @@
+cuber.throws.SERVER-ERROR=Internal server error
+cuber.throws.METHOD-NOT-ALLOWED=Request method not allowed
+cuber.throws.BAD-REQUEST=Request argument wrong
+
+cuber.throws.LOGIN-NO-HANDLER=Not accept login type
+cuber.throws.LOGIN-NO-SUCH-USER=Login email OR credential wrong
+cuber.throws.LOGIN-PASSWORD-WRONG=Login email OR credential wrong

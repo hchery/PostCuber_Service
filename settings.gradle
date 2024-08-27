@@ -1,0 +1,21 @@
+import org.gradle.api.initialization.resolve.RepositoriesMode
+
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    mavenLocal()
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/central' }
+    mavenCentral()
+  }
+}
+
+rootProject.name = "$PROJ_ARTIFACT_ID"
+
+include(
+  'cuber-main',
+  'cuber-sdk',
+  'cuber-i18n',
+  'cuber-location',
+  'cuber-advice',
+)

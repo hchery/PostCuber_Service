@@ -1,0 +1,14 @@
+plugins {
+  id 'java'
+  id 'org.springframework.boot' version "$VER_PLUGIN_SPRING_BOOT"
+  id 'io.spring.dependency-management' version "$VER_PLUGIN_SPRING_DEP"
+}
+
+dependencies {
+  implementation(
+    project(':cuber-sdk'),
+    project(':cuber-i18n'),
+    project(':cuber-location'),
+    project(':cuber-advice'),
+  )
+}
