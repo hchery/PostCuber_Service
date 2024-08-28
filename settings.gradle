@@ -18,4 +18,5 @@ include(
   'cuber-i18n',
   'cuber-location',
   'cuber-advice',
+  'cuber-identity',
 )

@@ -6,10 +6,6 @@ plugins {
 
 dependencies {
   implementation(
-    project(':cuber-sdk'),
-    project(':cuber-i18n'),
-    project(':cuber-location'),
-    project(':cuber-advice'),
-    project(':cuber-identity'),
+    project(':cuber-sdk')
   )
 }

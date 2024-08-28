@@ -29,27 +29,42 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(CuberException.class)
     public ApiBody cuberException(CuberException ex) {
         contextClient.setThrown(ex);
-        return new ApiBody(ex.getCode(), i18nContext.read(ex.getDescI18nKey()));
+        return new ApiBody(
+            ex.getCode(),
+            i18nContext.read(ex.getDescI18nKey())
+        );
     }
 
     @ExceptionHandler(MethodNotAllowedException.class)
     public ApiBody requestMethodNotAllowed(MethodNotAllowedException ex) {
-        return makeBody(ex, ErrorCode.METHOD_NOT_ALLOWED);
+        return makeBody(
+            ex,
+            ErrorCode.METHOD_NOT_ALLOWED
+        );
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public ApiBody httpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex) {
-        return makeBody(ex, ErrorCode.METHOD_NOT_ALLOWED);
+        return makeBody(
+            ex,
+            ErrorCode.METHOD_NOT_ALLOWED
+        );
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ApiBody httpMessageNotReadable(HttpMessageNotReadableException ex) {
-        return makeBody(ex, ErrorCode.BAD_REQUEST);
+        return makeBody(
+            ex,
+            ErrorCode.BAD_REQUEST
+        );
     }
 
     @ExceptionHandler(Exception.class)
     public ApiBody allException(Exception ex) {
-        return makeBody(ex, ErrorCode.SERVER_ERROR);
+        return makeBody(
+            ex,
+            ErrorCode.SERVER_ERROR
+        );
     }
 
     private ApiBody makeBody(Exception ex, ErrorCode code) {
