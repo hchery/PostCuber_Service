@@ -1,6 +1,7 @@
 package cuber.post.app.identity.service;
 
 import cuber.post.app.sdk.model.identity.User;
+import cuber.post.app.sdk.service.PasswordService;
 import cuber.post.app.sdk.service.UserService;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;

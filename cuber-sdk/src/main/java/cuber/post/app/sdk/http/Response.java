@@ -1,4 +1,4 @@
-package cuber.post.app.sdk.service;
+package cuber.post.app.sdk.http;
 
 /**
  * DATE: 2024/8/28
@@ -6,6 +6,5 @@ package cuber.post.app.sdk.service;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
-public interface RandomService {
-    int randomInt(int min, int max);
+public interface Response extends HttpModel {
 }

@@ -1,7 +1,7 @@
 package cuber.post.app.identity.service;
 
-import cuber.post.app.sdk.service.RandomService;
-import jakarta.annotation.Resource;
+import cuber.post.app.sdk.service.PasswordService;
+import cuber.post.app.sdk.utils.RandomHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * EMAIL: h.chery@qq.com
  */
 @Service
-public class PasswordService extends BCryptPasswordEncoder {
+public class SpringEncoderPasswordService extends BCryptPasswordEncoder implements PasswordService {
 
     private static final char[] CHAR_DICT = new char[] {
         'a', 'b', 'c', 'd', 'e', 'f',
@@ -31,14 +31,11 @@ public class PasswordService extends BCryptPasswordEncoder {
     private static final int MIN_PASSWORD_LENGTH = 8;
     private static final int MAX_PASSWORD_LENGTH = 16;
 
-    @Resource
-    private RandomService randomService;
-
     public String randomPassword() {
-        int len = randomService.randomInt(MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH);
+        int len = RandomHelper.randomInt(MIN_PASSWORD_LENGTH, MAX_PASSWORD_LENGTH);
         StringBuilder sb = new StringBuilder(len);
         for (int i = 0; i < len; i++) {
-            int index = randomService.randomInt(0, CHAR_DICT_SIZE - 1);
+            int index = RandomHelper.randomInt(0, CHAR_DICT_SIZE - 1);
             sb.append(CHAR_DICT[index]);
         }
         return sb.toString();

@@ -10,7 +10,7 @@ import java.io.Serial;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
-public class CuberEvent extends ApplicationEvent {
+public abstract class CuberEvent extends ApplicationEvent {
 
     @Serial
     private static final long serialVersionUID = -2659226789636239289L;

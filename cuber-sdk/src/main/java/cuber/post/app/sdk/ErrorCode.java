@@ -24,4 +24,16 @@ public enum ErrorCode {
     private final int code;
     private final ErrorLevel level;
     private final I18nKey i18nKey;
+
+    public CuberException errors(String message, Throwable cause) {
+        CuberException exception = new CuberException(message, cause);
+        exception.setCode(code);
+        exception.setLevel(level);
+        exception.setDescI18nKey(i18nKey);
+        return exception;
+    }
+
+    public CuberException errors(String message) {
+        return errors(message, null);
+    }
 }

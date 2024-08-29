@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="selectAuthenticatorLoginHandler" class="cuber.post.app.auth.service.login.SelectAuthenticatorLoginHandler"/>
+  <bean id="queryUserLoginHandler" class="cuber.post.app.auth.service.login.QueryUserLoginHandler"/>
+  <bean id="triggerAuthenticatorLoginHandler" class="cuber.post.app.auth.service.login.TriggerAuthenticatorLoginHandler"/>
+  <bean id="undertakeLoginHandler" class="cuber.post.app.auth.service.login.UndertakeLoginHandler"/>
+
+  <bean id="indexedLoginHandlerChain" class="cuber.post.app.auth.service.IndexedLoginHandlerChain">
+    <constructor-arg>
+      <list>
+        <ref bean="selectAuthenticatorLoginHandler"/>
+        <ref bean="queryUserLoginHandler"/>
+        <ref bean="triggerAuthenticatorLoginHandler"/>
+        <ref bean="undertakeLoginHandler"/>
+      </list>
+    </constructor-arg>
+  </bean>
+
+</beans>

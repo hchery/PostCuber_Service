@@ -68,10 +68,7 @@ public class GlobalExceptionHandler {
     }
 
     private ApiBody makeBody(Exception ex, ErrorCode code) {
-        CuberException thrown = new CuberException(ex.getMessage(), ex);
-        thrown.setCode(code.getCode());
-        thrown.setLevel(code.getLevel());
-        thrown.setDescI18nKey(code.getI18nKey());
+        CuberException thrown = code.errors(ex.getMessage(), ex);
         return cuberException(thrown);
     }
 }

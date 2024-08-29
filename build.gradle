@@ -25,7 +25,6 @@ subprojects {
       'org.apache.commons:commons-lang3',
       "org.lionsoul:ip2region:$VER_LIB_IP2REGION",
       "com.maxmind.geoip2:geoip2:$VER_LIB_GEO_LITE",
-      "com.auth0:java-jwt:$VER_LIB_AUTH0_JAVA_JWT"
     )
     compileOnly(
       'org.projectlombok:lombok',

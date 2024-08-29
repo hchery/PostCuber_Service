@@ -10,7 +10,7 @@ import java.io.Serial;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
-public class SpringEvent extends ApplicationEvent {
+public abstract class SpringEvent extends ApplicationEvent {
 
     @Serial
     private static final long serialVersionUID = 2896439495294952947L;
