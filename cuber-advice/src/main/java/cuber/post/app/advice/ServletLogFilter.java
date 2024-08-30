@@ -89,6 +89,9 @@ public class ServletLogFilter extends OncePerRequestFilter {
         if (!args.isDevMode()) {
             return null;
         }
+        if (ex == null) {
+            return null;
+        }
         Throwable cause = ex.getCause();
         return cause == null ? ex : cause;
     }

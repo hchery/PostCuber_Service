@@ -39,7 +39,7 @@ public class PasswordAuthenticator implements Authenticator {
     public void authenticate(User user, LoginRequest request) throws CuberException {
         String raw = request.getCredential();
         String codes = user.getPassword();
-        if (StringUtils.isBlank(request.getCredential()) || !passwordService.matches(codes, raw)) {
+        if (StringUtils.isBlank(request.getCredential()) || !passwordService.matches(raw, codes)) {
             onPasswordWrong(user, request);
         }
     }

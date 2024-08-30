@@ -5,3 +5,8 @@ cuber.throws.BAD-REQUEST=请求参数错误
 cuber.throws.LOGIN-NO-HANDLER=不支持的登录方式
 cuber.throws.LOGIN-NO-SUCH-USER=登录邮箱或凭据错误
 cuber.throws.LOGIN-PASSWORD-WRONG=登录邮箱或凭据错误
+
+cuber.enum.LOGIN-TYPE-PASSWORD=密码登录
+
+cuber.enum.LOGIN-RESULT-COMPLETED=登录成功
+cuber.enum.LOGIN-RESULT-PASSWORD-WRONG=密码错误

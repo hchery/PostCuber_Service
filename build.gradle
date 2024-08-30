@@ -23,6 +23,7 @@ subprojects {
       'org.springframework.boot:spring-boot-starter-cache',
       'org.springframework.security:spring-security-crypto',
       'org.apache.commons:commons-lang3',
+      'commons-codec:commons-codec',
       "org.lionsoul:ip2region:$VER_LIB_IP2REGION",
       "com.maxmind.geoip2:geoip2:$VER_LIB_GEO_LITE",
     )

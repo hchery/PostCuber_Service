@@ -17,4 +17,6 @@ public class LoginToken {
     private LoginRequest request;
     private User user;
     private Authenticator authenticator;
+    private StringToken refreshToken;
+    private ExpireStringToken accessToken;
 }
