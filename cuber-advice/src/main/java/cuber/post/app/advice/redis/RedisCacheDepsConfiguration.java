@@ -1,6 +1,7 @@
 package cuber.post.app.advice.redis;
 
 import cuber.post.app.sdk.CuberAppArgs;
+import cuber.post.app.sdk.data.RedisKeySerializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
@@ -23,11 +24,10 @@ public class RedisCacheDepsConfiguration {
     }
 
     @Bean
-    public RedisCacheConfiguration cacheConfiguration(CuberAppArgs args) {
+    public RedisCacheConfiguration cacheConfiguration(RedisKeySerializer keySerializer) {
         return RedisCacheConfiguration.defaultCacheConfig()
-            .serializeKeysWith(RedisSerializationContext.string().getKeySerializationPair())
+            .serializeKeysWith(RedisSerializationContext.fromSerializer(keySerializer).getKeySerializationPair())
             .serializeValuesWith(RedisSerializationContext.java().getValueSerializationPair())
-            .prefixCacheNameWith(args.getRedisKeyPrefix())
-            .computePrefixWith(k -> "%s:%s:".formatted(args.getRedisKeyPrefix(), k));
+            .computePrefixWith("%s:"::formatted);
     }
 }
