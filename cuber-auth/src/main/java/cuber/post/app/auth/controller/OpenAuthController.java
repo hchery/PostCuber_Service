@@ -23,7 +23,7 @@ public class OpenAuthController {
     private IndexedLoginHandlerChain loginHandlerChain;
 
     @PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest request) {
+    public TokenResponse login(@RequestBody LoginRequest request) {
         LoginToken loginToken = new LoginToken();
         loginToken.setRequest(request);
         LoginToken completeToken = loginHandlerChain.newChain().doNext(loginToken);
@@ -35,8 +35,6 @@ public class OpenAuthController {
         TokenResponse tokenResponse = new TokenResponse();
         tokenResponse.setAccessToken(accessTokenResponse);
         tokenResponse.setRefreshToken(refreshTokenResponse);
-        LoginResponse loginResponse = new LoginResponse();
-        loginResponse.setToken(tokenResponse);
-        return loginResponse;
+        return tokenResponse;
     }
 }
