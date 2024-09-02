@@ -1,9 +1,10 @@
 package cuber.post.app.auth.service.token;
 
 import cuber.post.app.auth.model.StringToken;
-import cuber.post.app.auth.redis.RefreshTokenSignKey;
+import cuber.post.app.auth.redis.RefreshTokenKeyRedisTemplate;
 import cuber.post.app.auth.utils.TokenHelper;
-import jakarta.annotation.Resource;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,18 +13,18 @@ import org.springframework.stereotype.Service;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
+@Setter(onMethod = @__(@Autowired))
 @Service
 public class RefreshTokenService {
 
     private static final long REFRESH_EXPIRE_TIME_MS = 30 * 60 * 1000L;
 
-    @Resource
-    private RefreshTokenSignKey refreshTokenSignKey;
+    private RefreshTokenKeyRedisTemplate redisTemplate;
 
     public StringToken issue(String userId) {
         String token = TokenHelper.generateToken(
             userId,
-            k -> refreshTokenSignKey.generateKey(userId, REFRESH_EXPIRE_TIME_MS)
+            k -> redisTemplate.createAndSaveKey(userId, REFRESH_EXPIRE_TIME_MS)
         );
         StringToken stringToken = new StringToken();
         stringToken.setText(token);

@@ -9,5 +9,5 @@ package cuber.post.app.identity.dao;
 public abstract class CacheKey {
 
     static final String K_USER_ID = "user:id#PT5m";
-    static final String K_USER    = "user:PT30m";
+    static final String K_USER    = "user#PT30m";
 }

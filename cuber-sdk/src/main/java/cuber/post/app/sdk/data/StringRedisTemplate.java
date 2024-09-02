@@ -10,14 +10,14 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
-public abstract class JavaRedisTemplate<T> extends RedisTemplate<String, T> {
+public abstract class StringRedisTemplate extends RedisTemplate<String, String> {
 
-    public JavaRedisTemplate(RedisConnectionFactory connectionFactory, RedisKeySerializer keySerializer) {
+    public StringRedisTemplate(RedisConnectionFactory connectionFactory, RedisKeySerializer keySerializer) {
         setConnectionFactory(connectionFactory);
         setKeySerializer(keySerializer);
-        setValueSerializer(RedisSerializer.java());
+        setValueSerializer(RedisSerializer.string());
         setHashKeySerializer(RedisSerializer.string());
-        setHashValueSerializer(RedisSerializer.java());
+        setHashValueSerializer(RedisSerializer.string());
         afterPropertiesSet();
     }
 }

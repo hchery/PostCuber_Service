@@ -24,7 +24,7 @@ public class RedisCacheDepsConfiguration {
     }
 
     @Bean
-    public RedisCacheConfiguration cacheConfiguration(RedisKeySerializer keySerializer) {
+    public RedisCacheConfiguration cacheConfiguration(CacheRedisKeySerializer keySerializer) {
         return RedisCacheConfiguration.defaultCacheConfig()
             .serializeKeysWith(RedisSerializationContext.fromSerializer(keySerializer).getKeySerializationPair())
             .serializeValuesWith(RedisSerializationContext.java().getValueSerializationPair())
