@@ -20,6 +20,7 @@ public enum ErrorCode {
     LOGIN_NO_HANDLER(10405, ErrorLevel.INFO, I18nKey.LOGIN_NO_HANDLER),
     LOGIN_NO_SUCH_USER(10404, ErrorLevel.INFO, I18nKey.LOGIN_NO_SUCH_USER),
     LOGIN_PASSWORD_WRONG(10401, ErrorLevel.INFO, I18nKey.LOGIN_PASSWORD_WRONG),
+    LOGIN_LIMITED(10403, ErrorLevel.INFO, I18nKey.LOGIN_LIMITED),
     ;
     private final int code;
     private final ErrorLevel level;

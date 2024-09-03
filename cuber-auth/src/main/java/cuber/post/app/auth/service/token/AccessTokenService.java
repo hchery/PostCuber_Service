@@ -13,13 +13,13 @@ import org.springframework.stereotype.Service;
  * URL: https://github.com/hchery
  * EMAIL: h.chery@qq.com
  */
-@Setter(onMethod = @__(@Autowired))
 @Service
 public class AccessTokenService {
 
     private static final long ACCESS_EXPIRE_TIME_MS = 5 * 60 * 1000L;
     private static final long CLIENT_EXPIRE_AFTER = ACCESS_EXPIRE_TIME_MS - (30 * 1000L);
 
+    @Setter(onMethod = @__(@Autowired))
     private AccessTokenKeyRedisTemplate redisTemplate;
 
     public ExpireStringToken issue(String userId) {

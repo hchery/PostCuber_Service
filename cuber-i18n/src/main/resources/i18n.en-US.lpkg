@@ -5,8 +5,10 @@ cuber.throws.BAD-REQUEST=Request argument wrong
 cuber.throws.LOGIN-NO-HANDLER=Not accept login type
 cuber.throws.LOGIN-NO-SUCH-USER=Login email OR credential wrong
 cuber.throws.LOGIN-PASSWORD-WRONG=Login email OR credential wrong
+cuber.throws.LOGIN-LIMITED=The current account has been restricted from logging in
 
 cuber.enum.LOGIN-TYPE-PASSWORD=Password
 
 cuber.enum.LOGIN-RESULT-COMPLETED=Completed
 cuber.enum.LOGIN-RESULT-PASSWORD-WRONG=Password wrong
+cuber.enum.LOGIN-RESULT-LIMITED=Login limited

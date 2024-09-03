@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 public enum LoginResult implements ValueEnum<Integer> {
     COMPLETED(1, I18nKey.ENUM_LOGIN_RESULT_COMPLETED),
     PASSWORD_WRONG(2, I18nKey.ENUM_LOGIN_RESULT_PASSWORD_WRONG),
+    LIMITED(3, I18nKey.ENUM_LOGIN_RESULT_LIMITED);
     ;
     private final Integer value;
     private final I18nKey i18nKey;

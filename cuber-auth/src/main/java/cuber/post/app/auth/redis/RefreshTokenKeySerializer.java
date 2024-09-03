@@ -14,6 +14,6 @@ public class RefreshTokenKeySerializer extends RedisKeySerializer {
 
     @Override
     protected String getGroup() {
-        return "key:token:refresh-sign";
+        return "token:key:refresh-sign";
     }
 }
