@@ -20,4 +20,5 @@ include(
   'cuber-advice',
   'cuber-identity',
   'cuber-auth',
+  'cuber-history',
 )

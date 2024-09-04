@@ -1,6 +1,6 @@
 package cuber.post.app.sdk.data;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
 /**
@@ -10,5 +10,5 @@ import org.springframework.data.repository.NoRepositoryBean;
  * EMAIL: h.chery@qq.com
  */
 @NoRepositoryBean
-public interface StringIdRepository<T> extends CrudRepository<T, String> {
+public interface StringIdRepository<T> extends MongoRepository<T, String> {
 }

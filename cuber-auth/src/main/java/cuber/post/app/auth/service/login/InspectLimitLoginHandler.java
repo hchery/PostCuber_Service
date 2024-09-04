@@ -31,13 +31,13 @@ public class InspectLimitLoginHandler implements LoginHandler {
         String userId = loginToken.getUser().getId();
         String tag = redisTemplate.opsForValue().get(userId);
         if (tag != null) {
-            onLoginLimit(userId, loginToken);
+            onLoginLimit(loginToken);
         }
         return chain.doNext(loginToken);
     }
 
-    private void onLoginLimit(String userId, LoginToken loginToken) {
-        publishLoginLimitResult(userId);
+    private void onLoginLimit(LoginToken loginToken) {
+        publishLoginLimitResult(loginToken);
         String message = "Email account: '%s' login fail with: '%s'".formatted(
             loginToken.getUser().getEmail(),
             LoginResult.LIMITED.name()
@@ -45,10 +45,11 @@ public class InspectLimitLoginHandler implements LoginHandler {
         throw ErrorCode.LOGIN_LIMITED.errors(message);
     }
 
-    private void publishLoginLimitResult(String userId) {
+    private void publishLoginLimitResult(LoginToken loginToken) {
         LoginResultEvent loginResultEvent = new LoginResultEvent(this);
-        loginResultEvent.setUserId(userId);
+        loginResultEvent.setUserId(loginToken.getUser().getId());
         loginResultEvent.setLoginResult(LoginResult.LIMITED);
+        loginResultEvent.setLoginType(loginToken.getRequest().getLoginType());
         context.publishEvent(loginResultEvent);
     }
 }

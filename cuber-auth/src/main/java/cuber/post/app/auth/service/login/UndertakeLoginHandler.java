@@ -38,6 +38,7 @@ public class UndertakeLoginHandler implements LoginHandler {
         LoginResultEvent loginResultEvent = new LoginResultEvent(this);
         loginResultEvent.setUserId(loginToken.getUser().getId());
         loginResultEvent.setLoginResult(LoginResult.COMPLETED);
+        loginResultEvent.setLoginType(loginToken.getRequest().getLoginType());
         context.publishEvent(loginResultEvent);
     }
 }

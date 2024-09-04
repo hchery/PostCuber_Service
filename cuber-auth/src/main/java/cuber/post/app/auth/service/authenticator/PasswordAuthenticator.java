@@ -46,7 +46,7 @@ public class PasswordAuthenticator implements Authenticator {
 
     private void onPasswordWrong(User user, LoginRequest request) throws CuberException {
         publishPasswordWrongEvent(user);
-        publishLoginResultEvent(user);
+        publishLoginResultEvent(user, request);
         String message = "Email account: '%s' login fail with: '%s'".formatted(
             request.getEmail(),
             LoginResult.PASSWORD_WRONG.name()
@@ -60,9 +60,10 @@ public class PasswordAuthenticator implements Authenticator {
         context.publishEvent(passwordWrongEvent);
     }
 
-    private void publishLoginResultEvent(User user) {
+    private void publishLoginResultEvent(User user, LoginRequest request) {
         LoginResultEvent loginResultEvent = new LoginResultEvent(this);
         loginResultEvent.setUserId(user.getId());
+        loginResultEvent.setLoginType(request.getLoginType());
         loginResultEvent.setLoginResult(LoginResult.PASSWORD_WRONG);
         context.publishEvent(loginResultEvent);
     }

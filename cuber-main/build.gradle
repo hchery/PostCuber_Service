@@ -12,5 +12,6 @@ dependencies {
     project(':cuber-advice'),
     project(':cuber-identity'),
     project(':cuber-auth'),
+    project(':cuber-history'),
   )
 }

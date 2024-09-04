@@ -1,6 +1,7 @@
 package cuber.post.app.sdk.event.auth;
 
 import cuber.post.app.sdk.model.auth.LoginResult;
+import cuber.post.app.sdk.model.auth.LoginType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,7 @@ public class LoginResultEvent extends LoginEvent {
         super(source);
     }
 
+    private LoginType loginType;
     private LoginResult loginResult;
 
     private Date loginTime = new Date();

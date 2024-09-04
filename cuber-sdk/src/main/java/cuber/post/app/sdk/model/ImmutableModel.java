@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serial;
 import java.util.Date;
@@ -22,6 +23,7 @@ public abstract class ImmutableModel extends IdModel {
     @Serial
     private static final long serialVersionUID = -5846044527035659262L;
 
+    @Field("create_time")
     @CreatedDate
     private Date createTime;
 }
