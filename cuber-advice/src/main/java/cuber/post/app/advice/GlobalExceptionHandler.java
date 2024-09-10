@@ -5,11 +5,14 @@ import cuber.post.app.sdk.ErrorCode;
 import cuber.post.app.sdk.http.ApiBody;
 import cuber.post.app.sdk.i18n.I18nContext;
 import jakarta.annotation.Resource;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.MethodNotAllowedException;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 /**
  * DATE: 2024/8/28
@@ -36,6 +39,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodNotAllowedException.class)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public ApiBody requestMethodNotAllowed(MethodNotAllowedException ex) {
         return makeBody(
             ex,
@@ -44,6 +48,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
     public ApiBody httpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex) {
         return makeBody(
             ex,
@@ -56,6 +61,15 @@ public class GlobalExceptionHandler {
         return makeBody(
             ex,
             ErrorCode.BAD_REQUEST
+        );
+    }
+
+    @ExceptionHandler(NoResourceFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiBody noResourceFound(NoResourceFoundException ex) {
+        return makeBody(
+            ex,
+            ErrorCode.NOT_FOUND
         );
     }
 

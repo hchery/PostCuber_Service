@@ -12,14 +12,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum I18nKey {
-    SERVER_ERROR("cuber.throws.SERVER-ERROR"),
-    METHOD_NOT_ALLOWED("cuber.throws.METHOD-NOT-ALLOWED"),
-    BAD_REQUEST("cuber.throws.BAD-REQUEST"),
+    THROWS_SERVER_ERROR("cuber.throws.SERVER-ERROR"),
+    THROWS_METHOD_NOT_ALLOWED("cuber.throws.METHOD-NOT-ALLOWED"),
+    THROWS_BAD_REQUEST("cuber.throws.BAD-REQUEST"),
+    THROWS_NOT_FOUND("cuber.throws.NOT-FOUND"),
 
-    LOGIN_NO_HANDLER("cuber.throws.LOGIN-NO-HANDLER"),
-    LOGIN_NO_SUCH_USER("cuber.throws.LOGIN-NO-SUCH-USER"),
-    LOGIN_PASSWORD_WRONG("cuber.throws.LOGIN-PASSWORD-WRONG"),
-    LOGIN_LIMITED("cuber.throws.LOGIN-LIMITED"),
+    THROWS_LOGIN_NO_HANDLER("cuber.throws.LOGIN-NO-HANDLER"),
+    THROWS_LOGIN_NO_SUCH_USER("cuber.throws.LOGIN-NO-SUCH-USER"),
+    THROWS_LOGIN_PASSWORD_WRONG("cuber.throws.LOGIN-PASSWORD-WRONG"),
+    THROWS_LOGIN_LIMITED("cuber.throws.LOGIN-LIMITED"),
 
     ENUM_LOGIN_TYPE_PASSWORD("cuber.enum.LOGIN-TYPE-PASSWORD"),
 
