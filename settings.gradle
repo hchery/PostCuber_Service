@@ -21,4 +21,5 @@ include(
   'cuber-identity',
   'cuber-auth',
   'cuber-history',
+  'cuber-vue-pages',
 )

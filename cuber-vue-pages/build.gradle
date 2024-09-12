@@ -1,0 +1,12 @@
+plugins {
+  id 'com.github.node-gradle.node' version "$VER_PLUGIN_NODE"
+}
+
+node {
+  download = false
+  version = "$VER_SDK_NODE"
+}
+
+tasks.register('npmBuild', NpmTask) {
+  args = ['run', 'build']
+}
