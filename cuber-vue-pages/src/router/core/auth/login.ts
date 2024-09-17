@@ -10,7 +10,7 @@ import { Routes } from '@/router/jumper'
 const loginRoute: RouteRecordRaw = {
   name: Routes.AuthLogin,
   path: "login",
-  component: () => import("@/views/core/auth/LoginView.vue")
+  component: () => import("@/views/core/auth/login/IndexView.vue")
 }
 
 export default loginRoute
