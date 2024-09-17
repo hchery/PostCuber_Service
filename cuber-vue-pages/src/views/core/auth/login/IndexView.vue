@@ -22,11 +22,11 @@ import LoginForm from '@/views/core/auth/login/LoginForm.vue'
 
 <style scoped>
 .w-card {
-  top: max(calc(50% - 200px), 0px);
+  top: max(calc(50% - 170px), 0px);
   left: max(calc(50% - 250px), 0px);
   position: absolute;
   width: 400px;
-  height: 400px;
+  height: 340px;
   border-radius: 5px;
 }
 .w-padding-disable {

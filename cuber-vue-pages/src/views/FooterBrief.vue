@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import { env } from '@/components/env'
-
-withDefaults(defineProps<{
-  color?: string
-}>(), {
-  color: "#777777"
-})
 </script>
 
 <template>
@@ -27,6 +21,6 @@ withDefaults(defineProps<{
 }
 .w-text {
   font-size: 13px;
-  color: v-bind(color);
+  color: var(--pc-color--page-footer);
 }
 </style>

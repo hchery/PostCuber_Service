@@ -5,7 +5,6 @@ import cuber.post.app.auth.service.LoginHandler;
 import cuber.post.app.auth.service.LoginHandlerChain;
 import cuber.post.app.sdk.event.auth.ClearPasswordWrongEvent;
 import cuber.post.app.sdk.event.auth.LoginResultEvent;
-import cuber.post.app.sdk.event.auth.RemoveLoginLimitEvent;
 import cuber.post.app.sdk.model.auth.LoginResult;
 import jakarta.annotation.Resource;
 import org.springframework.context.ApplicationContext;
