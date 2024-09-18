@@ -14,7 +14,7 @@ export function appEmit<T>(event: AppEvent<T>) {
 }
 
 export function appOn<T>(listener: AppListener<T>) {
-  __mitt__.emit(listener.channel, (argv: T) => listener.action(argv))
+  __mitt__.on(listener.channel, argv => listener.action(argv as T))
 }
 
 export interface AppEvent<T> {
@@ -26,3 +26,5 @@ export interface AppListener<T> {
   channel: Channel,
   action(args: T): void
 }
+
+export * from "./define/alerts"

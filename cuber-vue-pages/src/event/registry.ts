@@ -5,10 +5,12 @@
  * EMAIL: h.chery@qq.com
  */
 import type { ObjectPlugin } from 'vue'
+import { appOn } from '@/event/index'
+import { alertListener } from '@/components/alerts'
 
 const registryEvents: ObjectPlugin = {
   install() {
-
+    appOn(alertListener())
   }
 }
 
